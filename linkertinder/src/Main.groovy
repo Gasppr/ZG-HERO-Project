@@ -1,7 +1,7 @@
 
 static void main(String[] args) {
-  Scanner sc = new Scanner(System.in)
-  int op =0
+   Scanner sc = new Scanner(System.in)
+   int op
   List<Empresa> empresas = []
   List<Candidato> candidatos = []
 
@@ -23,26 +23,85 @@ static void main(String[] args) {
   println "OLÁ \"{nomeDoUsuário}\" SEJA BEM-VINDO AO Linketinder"
 
 
-  while (op != 3){
-    println "\n 1 - Ver todos os candidatos \n 2- Ver todas as empresas \n 3- sair"
+  do{
+    println "\n 1 - Ver todos os candidatos \n 2- Ver todas as empresas \n 3- Cadastrar candidato \n 4- Cadastrar empresa \n 5 - Sair"
     op = sc.nextInt()
+
 
     if (op == 1){
       candidatos.each { candidato -> candidato.toString(candidato) }
     }
+
     else if( op == 2){
       empresas.each { empresa -> empresa.toString(empresa) }
     }
+
     else if (op == 3){
+
+
+        println "Digite o nome do candidato: "
+        def nome = sc.next()
+
+
+        println "Digite o email do candidato: "
+        def email = sc.next()
+
+        println "Digite o CPF do candidato: "
+        def cpf = sc.next()
+
+        println "Digite o idade do candidato: "
+        def idade = sc.nextInt()
+
+        println "Digite o Estado do candidato: "
+        def estado = sc.next()
+
+        println "Digite o CEP do candidato: "
+        def cep = sc.next()
+
+        println "Digite a descrição do candidato: "
+        def descricao = sc.next()
+
+        candidatos.add(new Candidato(nome, email, cpf, idade, estado, cep, descricao))
+
+
+    }
+        else if(op == 4){
+        println "Digite o nome da empresa: "
+        def nome = sc.next()
+
+
+        println "Digite o email da empresa: "
+        def email = sc.next()
+
+        println "Digite o CNPJ da empresa: "
+        def cnpj = sc.next()
+
+        println "Digite o nome do país da empresa: "
+        def pais = sc.next()
+
+        println "Digite o Estado da empresa: "
+        def estado = sc.next()
+
+        println "Digite o CEP da empresa: "
+        def cep = sc.next()
+
+        println "Digite a descrição da empresa: "
+        def descricao = sc.next()
+
+        empresas.add(new Empresa(nome, email, cnpj,pais, estado, cep, descricao))
+    }
+
+    else if (op == 5){
       println "Adeus {nomeDoUsuario}"
     }
+
     else{
       println "Está opção não existe"
     }
 
 
 
-  }
+  }while (op != 5)
 
 
 }
